@@ -1,8 +1,8 @@
 import './App.scss';
 import { Outlet } from 'react-router';
-import NavLink from './NavLink';
-import NavGroup from './NavGroup';
-import NavProvider from './NavProvider';
+import NavLink from '@/NavLink';
+import NavGroup from '@/NavGroup';
+import NavProvider from '@/NavProvider';
 
 function App() {
   return (

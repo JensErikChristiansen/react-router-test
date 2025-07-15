@@ -1,7 +1,7 @@
-import { type ReactNode, useEffect, useState } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import './navGroup.scss';
-import useNav from '../NavProvider/useNav';
+import useNav from '@/NavProvider/useNav';
 
 export default function NavGroup({
   root,
