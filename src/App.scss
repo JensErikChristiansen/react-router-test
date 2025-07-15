@@ -17,38 +17,3 @@
   gap: 1rem;
   padding: 1rem;
 }
-
-.navGroup {
-  display: flex;
-  flex-direction: column;
-}
-
-.navContent {
-  margin-left: 1rem;
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.5s cubic-bezier(0.25, 0, 0, 1);
-
-  &.open {
-    grid-template-rows: 1fr;
-  }
-
-  & > * {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    // margin-top: 1rem;
-  }
-}
-
-.navLink {
-  &.active {
-    font-weight: 900;
-    color: white;
-  }
-}
-
-.settingsNav {
-  display: flex;
-  gap: 1rem;
-}

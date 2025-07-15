@@ -1,0 +1,35 @@
+.navGroup {
+  display: flex;
+  flex-direction: column;
+
+  &[data-state='active'] {
+    .navHeader {
+      font-weight: 700;
+    }
+  }
+}
+
+.navContent {
+  margin-left: 1rem;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.25, 0, 0, 1);
+
+  &.open {
+    grid-template-rows: 1fr;
+  }
+
+  & > * {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.navHeader {
+  cursor: pointer;
+
+  // &.active {
+  //   font-weight: 900;
+  // }
+}
