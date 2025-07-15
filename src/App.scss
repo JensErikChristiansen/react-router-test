@@ -18,13 +18,16 @@
   padding: 1rem;
 }
 
-.nav.group {
+.navGroup {
+  display: flex;
+  flex-direction: column;
 }
 
 .navContent {
+  margin-left: 1rem;
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s;
+  transition: grid-template-rows 0.5s cubic-bezier(0.25, 0, 0, 1);
 
   &.open {
     grid-template-rows: 1fr;
@@ -32,11 +35,10 @@
 
   & > * {
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    // margin-top: 1rem;
   }
-}
-
-.navContentContent {
-  overflow: hidden;
 }
 
 .navLink {

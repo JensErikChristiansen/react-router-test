@@ -37,6 +37,12 @@ function App() {
             Group Payment
           </NavLink>
         </NavGroup>
+
+        <NavGroup root="/collection" title="Collection">
+          <NavLink to="/collection/single">Single Collection</NavLink>
+
+          <NavLink to="/collection/group">Group Collection</NavLink>
+        </NavGroup>
       </nav>
       <div className="page">
         <Outlet />
@@ -70,20 +76,13 @@ function NavGroup({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="nav group">
+    <div className="navGroup">
       <NavHeader to={root} onClick={() => setOpen(!open)}>
         {title}
       </NavHeader>
+
       <div className={`navContent ${open || isActive ? 'open' : ''}`}>
-        <div
-          className="navContentContent"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
-          {children}
-        </div>
+        <div>{children}</div>
       </div>
     </div>
   );

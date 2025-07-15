@@ -40,6 +40,19 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: 'collection',
+        children: [
+          {
+            path: 'single',
+            element: <h2>Single Collection</h2>,
+          },
+          {
+            path: 'group',
+            element: <h2>Group Collection</h2>,
+          },
+        ],
+      },
     ],
   },
   {
