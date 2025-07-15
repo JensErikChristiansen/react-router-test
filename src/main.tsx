@@ -23,7 +23,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'account',
-            element: <h1>Account</h1>,
+            element: <h2>Account</h2>,
           },
         ],
       },

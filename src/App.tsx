@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import './App.scss';
 import { Outlet, NavLink, useLocation, matchPath } from 'react-router';
 
@@ -56,17 +56,48 @@ function NavGroup({
   title: string;
   children: ReactNode;
 }) {
+  const location = useLocation();
+
+  const isActive =
+    location.pathname === root || location.pathname.startsWith(root + '/');
+
+  useEffect(() => {
+    if (!isActive) {
+      setOpen(false);
+    }
+  }, [isActive, location.pathname]);
+
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="nav">
-      <NavHeader to={root}>{title}</NavHeader>
-      {children}
+    <div className="nav group">
+      <NavHeader to={root} onClick={() => setOpen(!open)}>
+        {title}
+      </NavHeader>
+      <div className={`navContent ${open || isActive ? 'open' : ''}`}>
+        <div
+          className="navContentContent"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          {children}
+        </div>
+      </div>
     </div>
   );
 }
 
-function NavHeader({ to, children }: { to: string; children: ReactNode }) {
+function NavHeader({
+  to,
+  children,
+  onClick,
+}: {
+  to: string;
+  children: ReactNode;
+  onClick: () => void;
+}) {
   const location = useLocation();
 
   const isActive =
@@ -77,6 +108,7 @@ function NavHeader({ to, children }: { to: string; children: ReactNode }) {
       // className={isActive ? 'text-blue-500 font-bold' : 'text-gray-500'}
       className={`navLink ${isActive ? 'active' : ''}`}
       aria-current={isActive ? 'page' : undefined}
+      onClick={onClick}
     >
       {children}
     </div>
